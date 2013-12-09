@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <!-- CSS Files -->
+    <link rel='stylesheet' type="text/css" media="screen" href='/stylesheets/style.css'/>
+    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/menu/css/simple_menu.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/login/css/simple_login.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <%-include CommonTemplate %>
+
+    <div id="form1">
+
+        <form id="myform" class="form-signin" name = "myform" action="/auth">
+            <h1 class="form-signin-heading text-muted">Welcome</h1>
+            <input type="text" name="username" class="form-control" placeholder="Username" required="" autofocus="">
+            <input type="password" name="password" class="form-control" placeholder="Password" required="">
+            <input id="Log-in" class="btn btn-lg btn-primary btn-block" type="submit" value="Sign In">
+            </input>
+            <div id="result">
+            </div>
+        </form>
+
+    </div>
+
+
+    <script src="/javascripts/Client.js"></script>
+	<script src="https://code.jquery.com/jquery.js"></script>
+</body>
+</html>

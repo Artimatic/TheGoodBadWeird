@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title><%= title %></title>
+      <meta charset="utf-8">
+      <link rel='stylesheet' href='/stylesheets/style.css'/>
+      <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/menu/css/simple_menu.css">
+
+      <!--socket.io-->
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <!--Load the AJAX API-->
+      <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+      <script type="text/javascript" src="/javascripts/ResultsScript.js"></script>
+
+      <!-- BOOTSTRAP -->
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+      <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+  </head>
+<body>
+
+    <%-include CommonTemplate %>
+
+    <!-- generates all the necessary pie charts -->
+    <div id="container">
+        <div id="form0">
+            <h1 id="title"><%= title %></h1>
+
+            <!--Divs that will hold the pie charts-->
+            <%for(var i = 0; i < questions.length; i++){%>
+                <div id="chart<%=i+1%>" style="width:600; height:450"></div>
+            <%}%>
+
+        </div>
+    </div><br>
+
+</body>
+</html>

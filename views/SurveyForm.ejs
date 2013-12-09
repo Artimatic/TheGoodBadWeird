@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+    <meta charset="utf-8">
+	<link rel='stylesheet' href='/stylesheets/style.css'/>
+	<link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/menu/css/simple_menu.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <%-include CommonTemplate %>
+
+    <!-- generates all the questions and possible answers -->
+    <div class="container">
+        <div id="form0">
+            <h1><%= title %></h1>
+
+            <p><%= description %></p>
+
+            <form name="tourSurvey" onsubmit="collect()">
+
+                <%for(var i = 0; i < questions.length; i++){%>
+                    <br><h3>Question <%=i+1%></h3>
+                    <%=questions[i]%><br><br>
+                    <%for(var j = 0; j < options[i].length; j++){%>
+                        <input type="radio" name= <%='q'+(i+1)%> value= <%='a'+(j+1)%>> <%=options[i][j]%> <br>
+                    <%}%>
+                <%}%>
+
+                <input id ="surveyButton" type="submit" value="Submit">
+            </form>
+        </div>
+    </div><br>
+
+	<script src="/javascripts/FormScript.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+</body>
+</html>
