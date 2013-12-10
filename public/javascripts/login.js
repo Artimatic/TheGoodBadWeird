@@ -21,6 +21,7 @@ $(document).ready(function() {
         var URL = $("#myform").attr("action");
         var payload = $("[name=myform]").serializeArray();
         var test = {username:"Steve",pass:"123"};
+        //Sends the user input and
         $.ajax({
             url: URL,
             type: 'POST',

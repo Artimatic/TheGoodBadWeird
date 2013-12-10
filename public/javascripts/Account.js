@@ -12,6 +12,7 @@ $(document).ready(function(){
     var html = "<h2>Your Surveys</h2>";
     $results.html(html);
 
+//Sends get request to server which will query the database for the user's exclusive surveys
     $("#log-in").html('<li><a href="#">Account</a><ol><li><a href="#">Logout</a></li></ol></li>');
 
         $.get('/acc', param, function(data1){
@@ -26,6 +27,7 @@ $(document).ready(function(){
 
 });
 
+//Translates the json object the server sends back
 var unpackData = function(input){
     if(input!==undefined||input===null){
         var str = input;

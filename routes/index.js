@@ -87,6 +87,7 @@ if(exclusiveSurvey){
     return jsonObj;
 }
 }
+//Queries a database for a description using log value
 function fetchDesc(theLogVal){
     //Queries database for a query that will get the exclusive survey...QUERY INCEPTION DUNDUNDUN
     connection.query("SELECT u.descr FROM users_in_session AS u WHERE u.logVal='"+theLogVal+"';", function(err, rows){
@@ -99,6 +100,7 @@ function fetchDesc(theLogVal){
         }
     });
 }
+//Queries database for a Survey using sid
 function fetchSurvey(sid){
     var questions = new Array();
     var options = new Array();

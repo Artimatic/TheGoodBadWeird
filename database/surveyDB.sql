@@ -59,3 +59,9 @@ insert into classSurvey (user_name, student, ans1, ans2, ans3, ans4, ans5) value
 ('tom', true, 'a', 'c','c','a','a');
 
 create table if not exists users_in_session(logId int auto_increment, id int, logTime varchar(19), descr text, logVal varchar(10), PRIMARY KEY(logId));
+insert into surveyQuestions (sid, questions_hash) values
+(11,'Who is your daddy...And what does he do?'),
+(12, 'Do you like me?'),
+(13, 'Well? Who do you think you are?'),
+(14, 'Well can you?'),
+(15, 'Do you smell what the rock is cooking?');
