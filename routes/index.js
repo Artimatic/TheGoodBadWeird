@@ -148,7 +148,9 @@ exports.surveyForm = function(req, res){
         res.redirect('/');
 	}
 };
-
+exports.exclusiveSurvey = function(req, res){
+    var surveyObj = survey_template(req);
+};
 exports.surveyResults = function(req, res){
     var resultObj = results_template(req);
     res.render('SurveyResults', resultObj);
@@ -159,6 +161,7 @@ exports.login = function(req, res){
 	res.render('Login', {title: 'Login'});
 };
 exports.auth = function(req, res){
+    //Checks input
     var username = sanitizeLogin(req.body[0].value);
     var password = sanitizeLogin(req.body[1].value);
     if(checkLogin(req.body[0].value)){
@@ -166,7 +169,11 @@ exports.auth = function(req, res){
         res.send(500, 'Bad Input');
         //res.send({jqXHR: true, textStatus:"Unable to Process Your Request", errorThrown: true});
     }
+    else if(username===null||password===null){
+        res.send(500, 'Fill in all fields');
+    }
     else{
+        //Queries database for user and password
     connection.query("SELECT u.id FROM users AS u WHERE u.accName='"+username+"' AND u.passHash='"+password+"';", function(err, rows){
         if(err) throw err;
         if(rows[0]!==undefined&&rows[0]!==null&&rows[0].id!==null&&rows[0].id!==undefined){
@@ -185,28 +192,48 @@ exports.auth = function(req, res){
     console.log(password);
 };
 
+function loggedIn(){
+    return true;
+}
 exports.loggedin = function(req, res){
+    if(!loggedIn()) res.render('HomePage', { title: 'UMass Computer Science'});
+    //Find the user's surveys
+    var userid = 1;
+
+
+    var userSurveys = new Array();
+    connection.query("select s.sname from surveys s, user_surveys_in_session us where us.sid = s.sid and us.id='"+userid+"'; ", function(err, rows){
+        if(err) throw err;
+        for(var i = 0; i<rows.length; i++){
+           userSurveys.push(rows[i].sname);
+        }
+        console.log("Entries in results: " + userSurveys.join());
+    });
+
     res.render('LoggedIn', { title: 'Your Surveys'});
 }
 exports.placeHolder = function(req, res){
-    res.render('PlaceholderView', { title: 'Your Survey'});
+    res.render('PlaceholderView', { title: 'Loggin In...'});
 }
 //Check if restricted symbols are being used. Return true if they are in the input
 var checkLogin = function(input){
+    if(input===undefined||input===null) return true;
     var regex= new RegExp(/[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/);
     return regex.test(input);
 }
 
 //Picks out only letters and numbers from the input
 var sanitizeLogin = function(input){
+    if(input===undefined||input===null) return null;
     var regex = new RegExp(/\w+[0-9]*/);   // sanitize input
     var result = input.match(regex);
-    return result[0];
+    if(result) return result[0];
+    else return null;
 }
 
 
 var sanitizeSurveyData = function(input){
-    if(input!==undefined){
+    if(input!==undefined||input===null){
         var regex = new RegExp(/[abcde]{1}[0-9]{1}/);   // sanitize input
         if(regex.test(input)){
             return input;

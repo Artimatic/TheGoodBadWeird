@@ -39,7 +39,7 @@ app.get('/SurveyResults/:IDNum', routes.surveyResults);
 app.get('/SurveyResults', routes.surveyResults);
 app.get('/user',routes.loggedin);
 app.get('/a', routes.placeHolder);
-app.get('/SurveyForm/:IDNum', routes.surveyForm);
+app.get('/Survey', routes.exclusiveSurvey);
 
 var server = http.createServer(app);
 server.listen(app.get('port'), function(){
