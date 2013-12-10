@@ -1,6 +1,7 @@
 var online =new Array();
 var user ="";
 var mysql = require('mysql');
+var exclusiveSurvey = false;
 /*
 * meant to provide template for survey route
 */
@@ -11,6 +12,8 @@ function survey_template(req){
     var options = new Array();
     var title;
     var description;
+    exclusiveSurvey = false;
+    var theLogVal = "";
     //Configures the variables for each different survey
     switch(id){
 
@@ -49,53 +52,31 @@ function survey_template(req){
             options.push(['Yes','No','Undecided']);
             break;
         case 3:
-            //space for 3rd survey
+           //space for 3rd survey
             break;
         case 4:
             //space for 4th survey
             break;
         default:
-            var theLogVal = sanitizeLogin(req.params.IDNum);
+            theLogVal = sanitizeLogin(req.params.IDNum);
             if(theLogVal === null||theLogVal===undefined) return;
+            else{
+                exclusiveSurvey=true;
+            }
+            return theLogVal;
 
-            //Queries database for a query that will get the exclusive survey...QUERY INCEPTION DUNDUNDUN
-            connection.query("SELECT u.descr FROM users_in_session AS u WHERE u.logVal='"+theLogVal+"';", function(err, rows){
-                if(err) throw err;
-                if(rows[0]!==undefined&&rows[0]!==null&&rows[0].descr!==null&&rows[0].descr!==undefined){
-
-                            console.log("PERFORMING QUERY: " + rows[0].descr);
-                            var sid=rows[0].descr;
-
-                            connection.query("SELECT s.sname, s.instructions, q.questions_hash FROM surveys AS s, surveyQuestions AS q WHERE s.sid="+sid+" AND s.sid = q.sid;", function(err, rows){
-                                if(err) throw err;
-                                if(rows[0]!==undefined&&rows[0]!==null&&rows[0].sname!==null&&rows[0].sname!==undefined)
-                                    if(rows[0]!==undefined&&rows[0]!==null&&rows[0].instructions!==null&&rows[0].instructions!==undefined)
-                                        if(rows[0]!==undefined&&rows[0]!==null&&rows[0].questions_hash!==null&&rows[0].questions_hash!==undefined){
-                                            title= rows[0].sname;
-                                            description = rows[0].instructions;
-
-                                            questions.push(rows[0].questions_hash);
-
-                                            options.push(['Yes', 'No']);
-                                            console.log("SENDING "+title+description+questions);
-                                            var jsonObj = {
-                                                title: title,
-                                                description: description,
-                                                questions: questions,
-                                                options: options
-                                            }
-
-                                            return jsonObj;
-                                        }
-
-                            });
-
-                }
-
-            });
 
     }
+if(exclusiveSurvey){
+    /*
+  var jsonObj = fetchDesc(theLogVal);
+    if(jsonObj===undefined||jsonObj ===null) return jsonObj;
+    else{
+        fetchSurvey(10);
+    }
+    */
 
+}else{
     var jsonObj = {
         title: title,
         description: description,
@@ -105,7 +86,56 @@ function survey_template(req){
 
     return jsonObj;
 }
+}
+function fetchDesc(theLogVal){
+    //Queries database for a query that will get the exclusive survey...QUERY INCEPTION DUNDUNDUN
+    connection.query("SELECT u.descr FROM users_in_session AS u WHERE u.logVal='"+theLogVal+"';", function(err, rows){
+        if(err) throw err;
+        if(rows[0]!==undefined&&rows[0]!==null&&rows[0].descr!==null&&rows[0].descr!==undefined){
+            console.log("PERFORMING QUERY: " + rows[0].descr);
+            var sid=rows[0].descr;
+            var json = fetchSurvey(sid);
+            return json;
+        }
+    });
+}
+function fetchSurvey(sid){
+    var questions = new Array();
+    var options = new Array();
+    var title;
+    var description;
+    connection2.query("SELECT s.sname, s.instructions, q.questions_hash FROM surveys AS s, surveyQuestions AS q WHERE s.sid="+sid+" AND s.sid = q.sid;", function(err, rows){
+        if(err) throw err;
+        if(rows[0]!==undefined&&rows[0]!==null&&rows[0].sname!==null&&rows[0].sname!==undefined)
+            if(rows[0]!==undefined&&rows[0]!==null&&rows[0].instructions!==null&&rows[0].instructions!==undefined)
+                if(rows[0]!==undefined&&rows[0]!==null&&rows[0].questions_hash!==null&&rows[0].questions_hash!==undefined){
+                    title= rows[0].sname;
+                    description = rows[0].instructions;
 
+                    questions.push(rows[0].questions_hash);
+                    questions.push('Filler');
+                    questions.push('Filler');
+                    questions.push('Filler');
+                    questions.push('Filler');
+
+                    options.push(['Yes','No']);
+                    options.push(['Filler']);
+                    options.push(['Filler']);
+                    options.push(['Filler']);
+                    options.push(['Filler']);
+
+
+                }
+        console.log("SENDING "+title+description+questions+options);
+        var jsonObj = {
+            title: title,
+            description: description,
+            questions: questions,
+            options: options
+        }
+        return jsonObj;
+    });
+}
 /*
  * meant to provide template for results route. not totally functional.
  */
@@ -173,7 +203,7 @@ exports.index = function(req, res){
 exports.surveyForm = function(req, res){
 
     var surveyObj = survey_template(req);
-
+    console.log("Sending: "+JSON.stringify(surveyObj));
     //Returns the answers
 	var q1 = sanitizeSurveyData(req.query.q1);
 	var q2 = sanitizeSurveyData(req.query.q2);
@@ -183,7 +213,58 @@ exports.surveyForm = function(req, res){
 
 	//If we dont have all the answers.
 	if(q1 === undefined || q2 === undefined || q3 === undefined || q4 === undefined || q5 === undefined){
-	    res.render('SurveyForm', surveyObj);
+        if(exclusiveSurvey){
+        //Queries database for a query that will get the exclusive survey...QUERY INCEPTION DUNDUNDUN
+        connection.query("SELECT u.descr FROM users_in_session AS u WHERE u.logVal='"+surveyObj+"';", function(err, rows){
+            if(err) throw err;
+            if(rows[0]!==undefined&&rows[0]!==null&&rows[0].descr!==null&&rows[0].descr!==undefined){
+                console.log("PERFORMING QUERY: " + rows[0].descr);
+                var sid=rows[0].descr;
+
+                var questions = new Array();
+                var options = new Array();
+                var title;
+                var description;
+                connection2.query("SELECT s.sname, s.instructions, q.questions_hash FROM surveys AS s, surveyQuestions AS q WHERE s.sid="+sid+" AND s.sid = q.sid;", function(err, rows){
+                    if(err) throw err;
+                    if(rows[0]!==undefined&&rows[0]!==null&&rows[0].sname!==null&&rows[0].sname!==undefined)
+                        if(rows[0]!==undefined&&rows[0]!==null&&rows[0].instructions!==null&&rows[0].instructions!==undefined)
+                            if(rows[0]!==undefined&&rows[0]!==null&&rows[0].questions_hash!==null&&rows[0].questions_hash!==undefined){
+                                title= rows[0].sname;
+                                description = rows[0].instructions;
+
+                                questions.push(rows[0].questions_hash);
+                                questions.push('Filler');
+                                questions.push('Filler');
+                                questions.push('Filler');
+                                questions.push('Filler');
+
+                                options.push(['Yes','No']);
+                                options.push(['Filler']);
+                                options.push(['Filler']);
+                                options.push(['Filler']);
+                                options.push(['Filler']);
+
+
+                            }
+                    console.log("SENDING "+title+description+questions+options);
+                    var jsonObj = {
+                        title: title,
+                        description: description,
+                        questions: questions,
+                        options: options
+                    }
+                    res.render('SurveyForm', jsonObj);
+                });
+                //console.log("SENDING "+title+description+questions+options);
+                //console.log("SENDING "+JSON.stringify(json));
+
+            }
+        });
+        }
+        else{
+        res.render('SurveyForm', surveyObj);
+        }
 	}else{
         console.log("Logged Answers: " + q1 +","+ q2 +","+ q3+","+ q4+","+ q5);
         connection.query("insert into departmentalTours(user_name, student, ans1, ans2, ans3, ans4, ans5) value('anon', true, '"+q1+"', '"+q2+"','"+q3+"','"+q4+"','"+q5+"');");
@@ -355,3 +436,12 @@ connection = mysql.createConnection({
 
 connection.connect();
 connection.query('use ' + DATABASE);
+connection2 = mysql.createConnection({
+    host: HOST,
+    port: PORT,
+    user: MYSQL_USER,
+    password: MYSQL_PASS,
+});
+
+connection2.connect();
+connection2.query('use ' + DATABASE);
