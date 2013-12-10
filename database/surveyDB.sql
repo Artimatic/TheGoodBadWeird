@@ -58,4 +58,4 @@ insert into classSurvey (user_name, student, ans1, ans2, ans3, ans4, ans5) value
 ('David', true, 'b', 'b','a','a','a'),
 ('tom', true, 'a', 'c','c','a','a');
 
-create table if not exists users_in_session(logId int auto_increment, id int, logTime time, descr text, logVal varchar(10), PRIMARY KEY(logId));
+create table if not exists users_in_session(logId int auto_increment, id int, logTime varchar(19), descr text, logVal varchar(10), PRIMARY KEY(logId));

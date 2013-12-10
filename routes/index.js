@@ -1,17 +1,16 @@
 var online =new Array();
 var user ="";
+var mysql = require('mysql');
 /*
 * meant to provide template for survey route
 */
 function survey_template(req){
 
     var id = parseInt(req.params.IDNum);
-    if(req.params.IDNum==="secret") console.log("Wat");
     var questions = new Array();
     var options = new Array();
     var title;
     var description;
-
     //Configures the variables for each different survey
     switch(id){
 
@@ -55,6 +54,46 @@ function survey_template(req){
         case 4:
             //space for 4th survey
             break;
+        default:
+            var theLogVal = sanitizeLogin(req.params.IDNum);
+            if(theLogVal === null||theLogVal===undefined) return;
+
+            //Queries database for a query that will get the exclusive survey...QUERY INCEPTION DUNDUNDUN
+            connection.query("SELECT u.descr FROM users_in_session AS u WHERE u.logVal='"+theLogVal+"';", function(err, rows){
+                if(err) throw err;
+                if(rows[0]!==undefined&&rows[0]!==null&&rows[0].descr!==null&&rows[0].descr!==undefined){
+
+                            console.log("PERFORMING QUERY: " + rows[0].descr);
+                            var sid=rows[0].descr;
+
+                            connection.query("SELECT s.sname, s.instructions, q.questions_hash FROM surveys AS s, surveyQuestions AS q WHERE s.sid="+sid+" AND s.sid = q.sid;", function(err, rows){
+                                if(err) throw err;
+                                if(rows[0]!==undefined&&rows[0]!==null&&rows[0].sname!==null&&rows[0].sname!==undefined)
+                                    if(rows[0]!==undefined&&rows[0]!==null&&rows[0].instructions!==null&&rows[0].instructions!==undefined)
+                                        if(rows[0]!==undefined&&rows[0]!==null&&rows[0].questions_hash!==null&&rows[0].questions_hash!==undefined){
+                                            title= rows[0].sname;
+                                            description = rows[0].instructions;
+
+                                            questions.push(rows[0].questions_hash);
+
+                                            options.push(['Yes', 'No']);
+                                            console.log("SENDING "+title+description+questions);
+                                            var jsonObj = {
+                                                title: title,
+                                                description: description,
+                                                questions: questions,
+                                                options: options
+                                            }
+
+                                            return jsonObj;
+                                        }
+
+                            });
+
+                }
+
+            });
+
     }
 
     var jsonObj = {
@@ -130,6 +169,7 @@ exports.index = function(req, res){
 	res.render('HomePage', { title: 'UMass CS Surveys'});
 };
 
+//Serve the survey
 exports.surveyForm = function(req, res){
 
     var surveyObj = survey_template(req);
@@ -199,23 +239,67 @@ function loggedIn(){
 }
 exports.loggedin = function(req, res){
     if(!loggedIn()) res.render('HomePage', { title: 'UMass Computer Science'});
-    //Find the user's surveys
 
-
+    //Current date, to place a log of user login time (used for timeouts when user login time > current time+10)
+    var currentdate = new Date();
+    var datetime = currentdate.getFullYear()+"-"+(currentdate.getMonth()+1)+"-"+(currentdate.getDate()+1)+" "+ + currentdate.getHours() + ":"
+        + currentdate.getMinutes() + ":"
+        + currentdate.getSeconds();
     var userSurveys = new Array();
+    var surveyIds = new Array();
     var surveysJson;
-    connection.query("select s.sname from surveys s, user_surveys_in_session us where us.sid = s.sid and us.id='"+user+"'; ", function(err, rows){
+    //Log value points to a query that is stored in the database
+    var logVals = new Array();
+    //Find the user's surveys
+    connection.query("select s.sname, us.sid from surveys s, user_surveys_in_session us where us.sid = s.sid and us.id='"+user+"'; ", function(err, rows){
         if(err) throw err;
         for(var i = 0; i<rows.length; i++){
             console.log(rows[i].sname);
-           userSurveys.push(rows[i].sname);
+            console.log(rows[i].sid);
+            userSurveys.push(rows[i].sname);
+            surveyIds.push(rows[i].sid);
         }
+        connection2 = mysql.createConnection({
+            host: HOST,
+            port: PORT,
+            user: MYSQL_USER,
+            password: MYSQL_PASS,
+        });
+
+        connection2.connect();
+        connection2.query('use ' + DATABASE);
+
         console.log("Entries in results: " + userSurveys.join());
+
+        //Stores each potential query in the database so that a query may be fetched using a query... Query inception
+        for(var j = 0; j<rows.length; j++){
+            console.log("Add "+surveyIds[j]);
+            //var html = "select u.descr from users_in_session u where u.logVal =";
+            var html = surveyIds[j];
+            var logVal = Math.floor((Math.random()*1000000)+1);
+            logVals.push(logVal);
+            console.log("Current user "+parseInt(user));
+            var num = parseInt(user);
+
+            connection2.query("insert into users_in_session(id, logTime, descr, logVal) values ("+num+",'"+datetime+"','"+surveyIds[j]+"','"+logVal+"');", function(err, rows){
+
+                if(err) throw err;
+            });
+
+                //"insert into users_in_session(id, logTime, descr, logVal) values ("+user+","+datetime+","+savedQuery+","+logVaL+")";
+        }
+        var package = new Array();
+        for(var k=0; k<userSurveys.length; k++){
+            package.push(userSurveys[k]+"|"+logVals[k]);
+        }
         console.log("Packaging "+userSurveys.join());
         surveysJson = JSON.stringify(userSurveys);
+        var logJson = JSON.stringify(logVals);
+        var bigPackage = JSON.stringify(package);
         console.log("Sending "+surveysJson);
+        console.log("Sending "+logJson);
         //res.render('LoggedIn', { title: 'Your Surveys'});
-        res.send(surveysJson);
+        res.send(bigPackage);
     });
 
 }
@@ -253,3 +337,21 @@ var sanitizeSurveyData = function(input){
     }
     return undefined;
 }
+
+
+//MYSQL
+var HOST = 'localhost';
+var PORT = 3306;
+var MYSQL_USER = 'root';         // This is the name of an admin account on your MySQL server.
+var MYSQL_PASS = 'Austin3:16';     // This is the password of that account.
+var DATABASE = 'surveyappdb';    // This is the name of the database
+
+connection = mysql.createConnection({
+    host: HOST,
+    port: PORT,
+    user: MYSQL_USER,
+    password: MYSQL_PASS,
+});
+
+connection.connect();
+connection.query('use ' + DATABASE);
