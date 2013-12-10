@@ -3,7 +3,7 @@
  */
 function logIn()
 {
-    loggedIn=true;
+    window.loggedIn=true;
 }
 
 //Actually not side wide. Only logged in users receive this script

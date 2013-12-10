@@ -2,20 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="200ec3e4-c74f-482c-8ead-55785df86e42" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/redirect.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/login.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/Account.js" afterPath="$PROJECT_DIR$/public/javascripts/Account.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/Client.js" afterPath="$PROJECT_DIR$/public/javascripts/Client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/CommonTemplate.ejs" afterPath="$PROJECT_DIR$/views/CommonTemplate.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/HomePage.ejs" afterPath="$PROJECT_DIR$/views/HomePage.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/LoggedIn.ejs" afterPath="$PROJECT_DIR$/views/LoggedIn.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/LoggedInCommonTemplate.ejs" afterPath="$PROJECT_DIR$/views/LoggedInCommonTemplate.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/Login.ejs" afterPath="$PROJECT_DIR$/views/Login.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/PlaceholderView.ejs" afterPath="$PROJECT_DIR$/views/PlaceholderView.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/SiteWide.js" afterPath="$PROJECT_DIR$/public/javascripts/SiteWide.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/SurveyForm.ejs" afterPath="$PROJECT_DIR$/views/SurveyForm.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/surveyDB.sql" afterPath="$PROJECT_DIR$/database/surveyDB.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TheGoodBadWierd.iws" />
@@ -38,40 +36,13 @@
     <favorites_list name="TheGoodBadWierd" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.60172415">
       <split-first>
         <leaf>
           <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="59" column="21" selection-start="1715" selection-end="1720" vertical-scroll-proportion="0.0" vertical-offset="526" max-vertical-offset="2023">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="PlaceholderView.ejs" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/PlaceholderView.ejs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="21" column="0" selection-start="650" selection-end="698" vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="459">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="redirect.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/javascripts/redirect.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="9" column="0" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SiteWide.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/javascripts/SiteWide.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="23" column="0" selection-start="514" selection-end="514" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="493">
+                <state line="53" column="47" selection-start="1520" selection-end="1520" vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="2040">
                   <folding />
                 </state>
               </provider>
@@ -80,7 +51,7 @@
           <file leaf-file-name="CommonTemplate.ejs" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/CommonTemplate.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="8" column="33" selection-start="391" selection-end="391" vertical-scroll-proportion="2.6153846" vertical-offset="204" max-vertical-offset="663">
+                <state line="21" column="23" selection-start="929" selection-end="929" vertical-scroll-proportion="0.0" vertical-offset="277" max-vertical-offset="663">
                   <folding />
                 </state>
               </provider>
@@ -89,25 +60,7 @@
           <file leaf-file-name="Account.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/javascripts/Account.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="18" column="0" selection-start="593" selection-end="593" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1989">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/routes/index.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="121" column="4" selection-start="4219" selection-end="4219" vertical-scroll-proportion="0.6419753" vertical-offset="1849" max-vertical-offset="4267">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Login.ejs" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/Login.ejs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="21" column="20" selection-start="778" selection-end="778" vertical-scroll-proportion="-2.9615386" vertical-offset="280" max-vertical-offset="765">
+                <state line="21" column="0" selection-start="592" selection-end="592" vertical-scroll-proportion="0.0" vertical-offset="13" max-vertical-offset="476">
                   <folding />
                 </state>
               </provider>
@@ -116,18 +69,43 @@
           <file leaf-file-name="LoggedIn.ejs" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/LoggedIn.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="25" column="21" selection-start="869" selection-end="869" vertical-scroll-proportion="-11.269231" vertical-offset="132" max-vertical-offset="1003">
-                  <folding>
-                    <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#body#0;n#div#0;n#html#0;n#!!top" expanded="true" />
-                  </folding>
+                <state line="21" column="28" selection-start="759" selection-end="759" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="1088">
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Client.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/javascripts/Client.js">
+          <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/routes/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="10" column="12" selection-start="232" selection-end="420" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="901">
+                <state line="8" column="4" selection-start="167" selection-end="218" vertical-scroll-proportion="-6.973301" vertical-offset="3009" max-vertical-offset="4437">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="login.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/javascripts/login.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="18" column="39" selection-start="629" selection-end="629" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="952">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="SurveyForm.ejs" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/SurveyForm.ejs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="294" max-vertical-offset="884">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="LoggedInCommonTemplate.ejs" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/LoggedInCommonTemplate.ejs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="33" column="33" selection-start="1192" selection-end="1192" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="663">
                   <folding />
                 </state>
               </provider>
@@ -137,10 +115,19 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="161" column="26" selection-start="3450" selection-end="3450" vertical-scroll-proportion="0.6724638" vertical-offset="2505" max-vertical-offset="4063">
+                <state line="176" column="18" selection-start="3906" selection-end="3906" vertical-scroll-proportion="0.0" vertical-offset="2837" max-vertical-offset="4199">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="surveyDB.sql" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/database/surveyDB.sql">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="61" column="0" selection-start="3583" selection-end="3583" vertical-scroll-proportion="1.0993072" vertical-offset="561" max-vertical-offset="1139">
                   <folding />
                 </state>
               </provider>
@@ -166,22 +153,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/views/SurveyResults1.ejs" />
-        <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/FormScript.js" />
-        <option value="$PROJECT_DIR$/views/SurveyForm.ejs" />
-        <option value="$PROJECT_DIR$/views/HomePage.ejs" />
-        <option value="$PROJECT_DIR$/views/LoggedInCommonTemplate.ejs" />
         <option value="$PROJECT_DIR$/views/CommonTemplate.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/redirect.js" />
         <option value="$PROJECT_DIR$/views/PlaceholderView.ejs" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/views/Login.ejs" />
-        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
-        <option value="$PROJECT_DIR$/public/javascripts/Client.js" />
         <option value="$PROJECT_DIR$/public/javascripts/SiteWide.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/Account.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/views/HomePage.ejs" />
+        <option value="$PROJECT_DIR$/views/Login.ejs" />
+        <option value="$PROJECT_DIR$/public/javascripts/home.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/Client.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/login.js" />
+        <option value="$PROJECT_DIR$/views/LoggedInCommonTemplate.ejs" />
         <option value="$PROJECT_DIR$/views/LoggedIn.ejs" />
+        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
+        <option value="$PROJECT_DIR$/database/surveyDB.sql" />
+        <option value="$PROJECT_DIR$/public/javascripts/Account.js" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
       </list>
     </option>
   </component>
@@ -189,7 +176,7 @@
     <option name="x" value="-4" />
     <option name="y" value="-4" />
     <option name="width" value="1374" />
-    <option name="height" value="748" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -233,6 +220,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -315,9 +303,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TheGoodBadWierd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TheGoodBadWierd-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -430,24 +431,24 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1374" height="748" extended-state="6" />
+    <frame x="-4" y="-4" width="1374" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294702" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294702" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5083333" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1362621" sideWeight="0.675" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09307521" sideWeight="0.7866667" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22666667" sideWeight="0.110201046" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3228477" sideWeight="0.88979894" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21333334" sideWeight="0.110201046" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21333334" sideWeight="0.88979894" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294702" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -481,112 +482,102 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/img/LreaD8N.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/img/misc-jackie-chan-l.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/img/nS0xbhm.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/img/stop.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/img/S9CfvrV.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/LoggedIn.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1158" column="7" selection-start="17794" selection-end="17831" vertical-scroll-proportion="0.33159268" vertical-offset="19559" max-vertical-offset="64651">
+        <state line="21" column="28" selection-start="759" selection-end="759" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="1088">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/LoggedInCommonTemplate.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="36" selection-start="1211" selection-end="1235" vertical-scroll-proportion="0.2852853" vertical-offset="398" max-vertical-offset="782">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/HomePage.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="36" selection-start="704" selection-end="704" vertical-scroll-proportion="-10.307693" vertical-offset="38" max-vertical-offset="1037">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/FormScript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="30" selection-start="78" selection-end="78" vertical-scroll-proportion="0.08947369" vertical-offset="0" max-vertical-offset="646" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="308" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="161" column="26" selection-start="3450" selection-end="3450" vertical-scroll-proportion="0.6724638" vertical-offset="2505" max-vertical-offset="4063">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="21" selection-start="1715" selection-end="1720" vertical-scroll-proportion="0.0" vertical-offset="526" max-vertical-offset="2023">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/redirect.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/CommonTemplate.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="33" selection-start="391" selection-end="391" vertical-scroll-proportion="2.6153846" vertical-offset="204" max-vertical-offset="663">
+        <state line="33" column="33" selection-start="1192" selection-end="1192" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="663">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/Login.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="20" selection-start="778" selection-end="778" vertical-scroll-proportion="-2.9615386" vertical-offset="280" max-vertical-offset="765">
+        <state line="36" column="0" selection-start="1352" selection-end="1401" vertical-scroll-proportion="1.115625" vertical-offset="255" max-vertical-offset="765" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="176" column="18" selection-start="3906" selection-end="3906" vertical-scroll-proportion="0.0" vertical-offset="2837" max-vertical-offset="4199">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/SiteWide.js">
+    <entry file="file://$PROJECT_DIR$/database/surveyDB.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="514" selection-end="514" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+        <state line="61" column="0" selection-start="3583" selection-end="3583" vertical-scroll-proportion="1.0993072" vertical-offset="561" max-vertical-offset="1139">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/Client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="12" selection-start="232" selection-end="420" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="901">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/LoggedIn.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="21" selection-start="869" selection-end="869" vertical-scroll-proportion="-11.269231" vertical-offset="132" max-vertical-offset="1003">
-          <folding>
-            <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#body#0;n#div#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/Account.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="593" selection-end="593" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1989">
+        <state line="21" column="0" selection-start="592" selection-end="592" vertical-scroll-proportion="0.0" vertical-offset="13" max-vertical-offset="476">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/PlaceholderView.ejs">
+    <entry file="file://$PROJECT_DIR$/views/CommonTemplate.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="650" selection-end="698" vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="459">
+        <state line="21" column="23" selection-start="929" selection-end="929" vertical-scroll-proportion="0.0" vertical-offset="277" max-vertical-offset="663">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="47" selection-start="1520" selection-end="1520" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="2040">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/SurveyForm.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="294" max-vertical-offset="884">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="39" selection-start="629" selection-end="629" vertical-scroll-proportion="0.0" vertical-offset="149" max-vertical-offset="918">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="4" selection-start="4219" selection-end="4219" vertical-scroll-proportion="0.6419753" vertical-offset="1849" max-vertical-offset="4267">
+        <state line="8" column="4" selection-start="167" selection-end="218" vertical-scroll-proportion="-6.973301" vertical-offset="3009" max-vertical-offset="4437">
           <folding />
         </state>
       </provider>

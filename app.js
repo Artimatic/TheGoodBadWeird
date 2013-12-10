@@ -24,7 +24,7 @@ app.use(express.methodOverride());
 app.use(express.cookieParser('cookies monster'));
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
-
+global.loggedIn = false;
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
@@ -37,9 +37,10 @@ app.post('/auth', routes.auth);
 app.get('/SurveyForm/:IDNum', routes.surveyForm);
 app.get('/SurveyResults/:IDNum', routes.surveyResults);
 app.get('/SurveyResults', routes.surveyResults);
-app.get('/user',routes.loggedin);
+app.get('/acc',routes.loggedin);
 app.get('/a', routes.placeHolder);
 app.get('/Survey', routes.exclusiveSurvey);
+app.get('/user',routes.user);
 
 var server = http.createServer(app);
 server.listen(app.get('port'), function(){

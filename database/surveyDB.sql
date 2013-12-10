@@ -48,7 +48,7 @@ insert into user_surveys_in_session(id, sid, answer_id) values
 insert into surveyAnswers(qid, answers_hash, date_submitted) values
 ('2', 'TEST','1991-09-14 13:23:44');
 
-insert into departmentTours(user_name, student, ans1, ans2, ans3, ans4, ans5) values
+insert into departmentalTours(user_name, student, ans1, ans2, ans3, ans4, ans5) values
 ('David', true, 'a', 'b','c','d','a'),
 ('tom', true, 'a', 'b','c','d','a'),
 ('David', true, 'a', 'b','c','d','a');
@@ -57,3 +57,5 @@ create table if not exists classSurvey(user_id int auto_increment, user_name var
 insert into classSurvey (user_name, student, ans1, ans2, ans3, ans4, ans5) values
 ('David', true, 'b', 'b','a','a','a'),
 ('tom', true, 'a', 'c','c','a','a');
+
+create table if not exists users_in_session(logId int auto_increment, id int, logTime time, descr text, logVal varchar(10), PRIMARY KEY(logId));

@@ -1,10 +1,12 @@
 var online =new Array();
-
+var user ="";
 /*
 * meant to provide template for survey route
 */
 function survey_template(req){
+
     var id = parseInt(req.params.IDNum);
+    if(req.params.IDNum==="secret") console.log("Wat");
     var questions = new Array();
     var options = new Array();
     var title;
@@ -179,6 +181,7 @@ exports.auth = function(req, res){
         if(rows[0]!==undefined&&rows[0]!==null&&rows[0].id!==null&&rows[0].id!==undefined){
             online.push(rows[0].id);
             console.log("User " + rows[0].id+" logged in");
+            user=rows[0].id;
             res.redirect('/');
         }
         else{
@@ -187,7 +190,6 @@ exports.auth = function(req, res){
         }
     });
     }
-
     console.log(username);
     console.log(password);
 };
@@ -198,18 +200,26 @@ function loggedIn(){
 exports.loggedin = function(req, res){
     if(!loggedIn()) res.render('HomePage', { title: 'UMass Computer Science'});
     //Find the user's surveys
-    var userid = 1;
 
 
     var userSurveys = new Array();
-    connection.query("select s.sname from surveys s, user_surveys_in_session us where us.sid = s.sid and us.id='"+userid+"'; ", function(err, rows){
+    var surveysJson;
+    connection.query("select s.sname from surveys s, user_surveys_in_session us where us.sid = s.sid and us.id='"+user+"'; ", function(err, rows){
         if(err) throw err;
         for(var i = 0; i<rows.length; i++){
+            console.log(rows[i].sname);
            userSurveys.push(rows[i].sname);
         }
         console.log("Entries in results: " + userSurveys.join());
+        console.log("Packaging "+userSurveys.join());
+        surveysJson = JSON.stringify(userSurveys);
+        console.log("Sending "+surveysJson);
+        //res.render('LoggedIn', { title: 'Your Surveys'});
+        res.send(surveysJson);
     });
 
+}
+exports.user =function(req,res){
     res.render('LoggedIn', { title: 'Your Surveys'});
 }
 exports.placeHolder = function(req, res){
