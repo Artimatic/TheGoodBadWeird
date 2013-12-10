@@ -47,3 +47,13 @@ insert into user_surveys_in_session(id, sid, answer_id) values
 
 insert into surveyAnswers(qid, answers_hash, date_submitted) values
 ('2', 'TEST','1991-09-14 13:23:44');
+
+insert into departmentTours(user_name, student, ans1, ans2, ans3, ans4, ans5) values
+('David', true, 'a', 'b','c','d','a'),
+('tom', true, 'a', 'b','c','d','a'),
+('David', true, 'a', 'b','c','d','a');
+
+create table if not exists classSurvey(user_id int auto_increment, user_name varchar(20), student boolean, ans1 varchar(2), ans2 varchar(2), ans3 varchar(2), ans4 varchar(2), ans5 varchar(2), PRIMARY KEY(user_id));
+insert into classSurvey (user_name, student, ans1, ans2, ans3, ans4, ans5) values
+('David', true, 'b', 'b','a','a','a'),
+('tom', true, 'a', 'c','c','a','a');
