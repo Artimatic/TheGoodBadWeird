@@ -24,7 +24,36 @@ create table if not exists user_competed_surveys(id int, answer_id int, sid int,
 create table if not exists user_surveys_in_session(id int, answer_id int, sid int, FOREIGN KEY(id) references users(id), FOREIGN KEY(answer_id) references surveyAnswers(answer_id), FOREIGN KEY(sid) references surveys(sid));
 
 create table if not exists user_answers(user_id int auto_increment, user_name varchar(20), student boolean, ans1 varchar(2), ans2 varchar(2), ans3 varchar(2), ans4 varchar(2), ans5 varchar(2), PRIMARY KEY(user_id));
+
 insert into user_answers (user_name, student, ans1, ans2, ans3, ans4, ans5) values
 ('anon', true, 'a1', 'a1','a1','a1','a1'),
 ('anon', true, 'a2', 'a2','a2','a2','a2');
 
+insert into surveys(sname,instructions) values 
+('TESTSURVEY','TESTSURVEY'),
+('Who is your daddy and what does he do?', 'Answer the question'),
+('Do you like me?','Please be truthful'),
+('Who do you think you are?!','Answer all he questions'),
+('Can you touch this?','Stop. Hammer time');
+insert into surveyQuestions(sid,questions_hash) values
+('10','TEST');
+insert into user_surveys_in_session(id, sid, answer_id) values
+('1', '1', '1'),
+('1', '2', '1'),
+('1', '3', '1'),
+('1', '4', '1'),
+('2', '1', '1'),
+('2', '4', '1');
+
+insert into surveyAnswers(qid, answers_hash, date_submitted) values
+('2', 'TEST','1991-09-14 13:23:44');
+
+insert into departmentTours(user_name, student, ans1, ans2, ans3, ans4, ans5) values
+('David', true, 'a', 'b','c','d','a'),
+('tom', true, 'a', 'b','c','d','a'),
+('David', true, 'a', 'b','c','d','a');
+
+create table if not exists classSurvey(user_id int auto_increment, user_name varchar(20), student boolean, ans1 varchar(2), ans2 varchar(2), ans3 varchar(2), ans4 varchar(2), ans5 varchar(2), PRIMARY KEY(user_id));
+insert into classSurvey (user_name, student, ans1, ans2, ans3, ans4, ans5) values
+('David', true, 'b', 'b','a','a','a'),
+('tom', true, 'a', 'c','c','a','a');
